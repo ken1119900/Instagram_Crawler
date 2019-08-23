@@ -12,9 +12,9 @@ User can specify below 3 variables in the program to control:
 (Instagram has some limitation so we can only download 12 post in an iteration)
 
 # Usage 
-1. Download or clone the test_ig.py file
+1. Download or clone the instagram_crawler.py file
 
-2. Setting below variables: "user_name" "dname" "max_post_iter" in the test_ig.py
+2. Setting below variables: "user_name" "dname" "max_post_iter" in the instagram_crawler.py
 
 *Example:*
 + *user_name = 'emmawatson'*
@@ -23,8 +23,8 @@ User can specify below 3 variables in the program to control:
 
 With above setting, this program will download latest 1200 posts of user account "emmawatson" into "C:\\Users\\Download\\emmawatson\\" of your PC.
 
-3. Execute the test_ig.py
+3. Execute the instagram_crawler.py
 ```
-python test_ig.py
+python instagram_crawler.py
 ```
 
