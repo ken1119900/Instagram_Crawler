@@ -36,14 +36,14 @@ def get_twelve_post(edges):
             edges_shortcode = js_data['graphql']['shortcode_media']['edge_sidecar_to_children']['edges']
             #num of pic in single post of this for loop            
             for edge_s in edges_shortcode:
-                if edge_s['node']['is_video']:
+                if edge_s['node']['is_video'] and edge_s['node']['video_url'] != 'https://static.cdninstagram.com/rsrc.php/null.jpg':
                     display_url = edge_s['node']['video_url']
                 elif edge_s['node']['display_url']:
                     display_url = edge_s['node']['display_url']
                 post.append(display_url)
                 photo_in_post_cnt=photo_in_post_cnt+1  
         else:            
-            if js_data['graphql']['shortcode_media']['is_video']:
+            if js_data['graphql']['shortcode_media']['is_video'] and js_data['graphql']['shortcode_media']['video_url'] != 'https://static.cdninstagram.com/rsrc.php/null.jpg':
                 display_url = js_data['graphql']['shortcode_media']['video_url']
             elif js_data['graphql']['shortcode_media']['display_url']:
                 display_url = js_data['graphql']['shortcode_media']['display_url']
