@@ -63,8 +63,18 @@ def save_from_url_to_local(dname):
                 print(file_name," already exist.  No need to download for remaining post.")
                 return False
             else:                
-                print("saving ",all_posts[i][j]," to ", file_name)
-                urllib.request.urlretrieve(all_posts[i][j], file_name)
+                #print("saving ",all_posts[i][j]," to ", file_name)
+                #urllib.request.urlretrieve(all_posts[i][j], file_name)
+                try:
+                    urllib.request.urlretrieve(all_posts[i][j], file_name)
+                except urllib.error.HTTPError as err:
+                    if err.code == 410:
+                        print(all_posts[i][j]," is gone. Skip downloading... Error code: ",err.code)
+                    else:
+                        print(all_posts[i][j]," downloading fail... Error code: ",err.code)
+                else:
+                    #download success
+                    print("saving ",all_posts[i][j]," to ", file_name)
     print("First time to query this account.  Download all finished.")
     return True
     
@@ -117,4 +127,3 @@ for index in range(0,max_post_iter):
         break
       
 save_from_url_to_local(dname)
-        
